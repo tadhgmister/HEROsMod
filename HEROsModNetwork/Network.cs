@@ -774,14 +774,11 @@ namespace HEROsMod.HEROsModNetwork
 			for (int i = 0; i < Players.Length; i++)
 			{
 				HEROsModPlayer player = Players[i];
-				if (player.ServerInstance.IsActive)
+				if (player.ServerInstance.IsActive && !player.Group.HasPermission("CanMove")
 				{
-					if (player.Username == string.Empty)
-					{
 						//player.GameInstance.AddBuff(47, 7200); 
 						//	Console.WriteLine("Freeze " + i);
 						NetMessage.SendData(55, player.Index, -1, "", player.Index, 47, 120, 0f, 0);
-					}
 				}
 			}
 		}
