@@ -76,7 +76,15 @@ namespace HEROsMod.HEROsModNetwork
 				Permissions.Add(p.Key, false);
 			}
 			Permissions["ModifyTerrain"] = true;
-			Permissions["CanMove"] = true;
+			//this check is probably in the wrong place...
+			if (name == "NotLoggedIn")
+			{
+				Permissions["CanMove"] = false;
+			}
+			else
+			{
+				Permissions["CanMove"] = true;
+			}
 		}
 
 		public bool HasPermission(string permissionName)
