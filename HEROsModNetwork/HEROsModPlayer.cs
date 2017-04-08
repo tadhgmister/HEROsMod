@@ -68,7 +68,7 @@ namespace HEROsMod.HEROsModNetwork
             this.ID = -1;
             this.UsingHEROsMod = false;
     //        this.CTFTeam = CTF.TeamColor.None;
-            Group = Network.DefaultGroup;
+            Group = Network.NotLoggedInGroup;
         }
     }
 
