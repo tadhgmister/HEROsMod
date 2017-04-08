@@ -246,6 +246,12 @@ namespace HEROsMod.HEROsModNetwork
 				Group defaultGroup = new Group("Default");
 				AddGroup(ref defaultGroup);
 			}
+			if (!HasNotLoggedInGroup())
+			{
+				Console.WriteLine("No NotLoggedIn group");
+				Group NotLoggedInGroup = new Group("NotLoggedIn");
+				AddGroup(ref NotLoggedInGroup);
+				
 			//ItemBanner.ItemsBanned = database.BanDestructiveExplosives;
 
 			//connection = new SqliteConnection("Data Source=HEROsModDatabase.s3db");
@@ -442,7 +448,12 @@ namespace HEROsMod.HEROsModNetwork
 		private static bool HasDefaultGroup()
 		{
 			return database.groups.Any(x => x.name == "Default");
+		}	
+		private static bool HasNotLoggedInGroup()
+		{
+			return database.groups.Any(x => x.name == "NotLoggedIn");
 		}
+
 
 		public static void AddGroup(ref Group group)
 		{
